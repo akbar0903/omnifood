@@ -1,0 +1,256 @@
+/* 
+======= 01 TYPOGRAPHY SYSTEM ===========
+inter font source: https://www.cdnfonts.com/inter.font
+rubik font source: https://fonts.font.im/css?family=Rubik:400,500,600,700
+
+FONT SIZE(px)
+10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+
+FONT WEIGHT:
+defaults: 400
+medium: 500
+semibold: 600
+bold: 700
+
+LINE HEIGHT:
+default: 1
+paragraph default: 1.6
+small: 1.05
+medium: 1.2
+large: 1.8
+
+LETTER SPACING:
+-0.5px
+0.75px
+
+======= 02 COLOR SYSTEM =========== 
+color generator: https://maketintsandshades.com/
+color palette: https://yeun.github.io/open-color/
+
+primary: #e67e22
+tints: 
+#fdf2e9
+#fae5d3
+shades: #cf711f
+accents:
+grays:
+#555
+#333
+#767676
+#888
+#aaa
+#6f6f6f (light gray allowed on #fdf2e9)
+
+======= 03 SHADOWS =========== 
+0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+
+======= 04 BORDER RADIUS =========== 
+default 8px
+medium 12px
+
+
+
+======= 05 WHITESPACE =========== 
+spacing systems(px) 
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+
+======= IMAGES =========== 
+source: 
+https://unsplash.com/
+https://www.uifaces.co/
+*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.8rem rgba(230, 125, 34, 0.5);
+}
+
+html {
+  /*
+   10px / 16px(浏览器默认) =  0.625 => 62.5%
+   以后 1rem 就是10px
+   */
+  font-size: 62.5%;
+  /* scroll-behavior: smooth;  平滑滚动到a指定的位置，低版本浏览器可能不支持，所以要用JavaScript */
+  overflow-x: hidden;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  color: #555;
+  line-height: 1;
+  /* Only works if there is nothing absolutely positioned in relation to body */
+  overflow-x: hidden;
+}
+
+/****************************/
+/* GENERAL REUSEABLE COMPONENTS */
+/****************************/
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  letter-spacing: -0.5px;
+  font-weight: 700;
+  color: #333;
+}
+
+.heading-primary {
+  margin-bottom: 3.2rem;
+  font-size: 5.2rem;
+  line-height: 1.05;
+}
+
+.heading-secondary {
+  margin-bottom: 9.6rem;
+  font-size: 4.4rem;
+  line-height: 1.2;
+}
+
+.heading-tertiary {
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  line-height: 1.2;
+}
+
+.sub-heading {
+  display: block;
+  margin-bottom: 1.6rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #cf711f;
+  letter-spacing: 0.75px;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  /* For Btn */
+  border: none;
+  font-family: inherit;
+}
+
+.btn-form {
+  align-self: end;
+  padding: 1.2rem;
+  background-color: #45260a;
+  color: #fdf2e9;
+}
+
+.btn-form:hover {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #e67e22;
+  border-bottom: 1px solid currentColor; /* currentColor refers to the element's text color */
+  padding-bottom: 2px;
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  border-bottom: 1px solid transparent;
+}
+
+strong {
+  font-weight: 500;
+}
+
+/****************************/
+/* HELPER CLASSES */
+/****************************/
+.margin-right-sm {
+  margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+  margin-bottom: 4.8rem !important;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.grid {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 9.6rem;
+}
+
+/* 通过这样设置，当一个容器里面有多个.grid元素时，除了最后一个之外，都会有下边距 */
+.grid:not(:last-child) {
+  margin-bottom: 9.6rem;
+}
+
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid--3-cols {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--4-cols {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--5-cols {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
+}
+
+.center-text {
+  text-align: center;
+}
